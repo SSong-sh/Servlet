@@ -43,9 +43,5 @@ public class Ex01 extends HttpServlet {
 		//에러
 		//http://localhost:8090/ServletTest/servlet/com.test.servlet.Ex01
 		
-		//가상주소
-		//http://localhost:8090/ServletTest/ex01.do
-		
-		
 	}
 }

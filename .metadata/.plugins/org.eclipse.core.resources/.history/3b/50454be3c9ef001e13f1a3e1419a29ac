@@ -17,7 +17,6 @@
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>ex01</servlet-name>
   	<url-pattern>/ex01.do</url-pattern>
   </servlet-mapping>
 </web-app>
