@@ -8,4 +8,7 @@ public class TodoDTO {
 	private String todo;
 	private String state;
 	private String regdate;
+	
+	private String checked;
+	
 }

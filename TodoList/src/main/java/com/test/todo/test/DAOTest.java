@@ -29,7 +29,7 @@ class DAOTest {
 		
 		TodoDAO dao = new TodoDAO();
 		
-		ArrayList<TodoDTO> list = dao.list();
+		ArrayList<TodoDTO> list = dao.list("n");
 		
 		assertNotNull(list);
 		
