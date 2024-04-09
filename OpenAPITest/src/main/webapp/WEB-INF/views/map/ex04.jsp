@@ -28,7 +28,7 @@
 	
 
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d02aa54170aa9fe2b80ece1ca4433ae2"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d02aa54170aa9fe2b80ece1ca4433ae2&libraries=services"></script>
 	<script src=https://code.jquery.com/jquery-3.7.1.js></script>
 	<script>
 	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
@@ -108,10 +108,20 @@
         });
         </c:forEach>
         
+        
         //지도 이벤트(줌 인/줌 아웃)
         kakao.maps.event.addListener(map, 'zoom_changed', function(evt){
-        	
-        	
+        	countMarker();        	
+        });
+        
+        
+        //지도 이벤트(드래그)
+        kakao.maps.event.addListener(map, 'dragend', function(evt){
+        	countMarker();        	
+        });
+        
+        
+        function countMarker() {
         	//$('.message').text(map.getLevel());
         	
         	mcount = 0;
@@ -124,8 +134,9 @@
         	});
         	
         	$('.message').text(mcount);
-        	
-        });
+        }
+        
+        
         
         function contains(item) {
         	//현재 맵안에 item이 포함되었는지?

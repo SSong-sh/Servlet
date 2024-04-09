@@ -29,7 +29,7 @@ public class Add extends HttpServlet{
 		
 		dao.add(dto);
 		
-		resp.sendRedirect("/api/map.do?ex=4");
+		resp.sendRedirect("/api/map.do?ex=04");
 		
 		
 	}
