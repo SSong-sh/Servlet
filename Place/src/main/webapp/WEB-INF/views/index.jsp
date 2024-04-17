@@ -160,9 +160,6 @@
 	
 	
 	
-	
-	
-	
 	//등록 지도
 	const container2 = document.getElementById('map2'); //지도를 담을 영역의 DOM 레퍼런스
 	

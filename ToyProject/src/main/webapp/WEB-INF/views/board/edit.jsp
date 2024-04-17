@@ -33,7 +33,7 @@
 			<button type="button" class="back" onclick="location.href='/toy/board/view.do?seq=${seq}';">돌아가기</button>
 			<button type="submit" class="add primary">수정하기</button>
 		</div>
-		'
+		
 		<input type="hidden" name="seq" value="${seq}" />
 		</form>
 		

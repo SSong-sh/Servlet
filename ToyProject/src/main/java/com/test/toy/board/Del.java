@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.test.toy.board.model.BoardDTO;
 import com.test.toy.board.repository.BoardDAO;
 import com.test.util.OutputUtil;
 
@@ -51,6 +50,7 @@ public class Del extends HttpServlet {
 		String seq = req.getParameter("seq");
 		
 		BoardDAO dao = new BoardDAO();
+		
 		
 		int result = dao.del(seq);
 		

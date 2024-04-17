@@ -39,3 +39,8 @@ select a.*,
     (select marker from tblCategory where seq = a.category) as marker 
 from tblPlace a
     where
+    
+    
+    
+    
+    

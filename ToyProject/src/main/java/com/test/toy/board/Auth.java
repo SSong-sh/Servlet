@@ -16,18 +16,15 @@ public class Auth {
 	public static boolean check(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
 		HttpSession session = req.getSession();
-		
-		
 		String seq = req.getParameter("seq");
 		
 		//글쓴이 본인?
 		BoardDAO dao = new BoardDAO();
+		BoardDTO dto = dao.get(seq);
 		
-		BoardDTO dto = new BoardDTO();
-		
-		//id != dto.id && lv !=2 > 권한이 없는 사람들
-		if(session.getAttribute("id") == null || (!session.getAttribute("id").toString().equals(dto.getId()))
-				&& !session.getAttribute("lv").toString().equals("2")) {
+		//id != dto.id && lv != 2
+		if (session.getAttribute("id") == null || ( !session.getAttribute("id").toString().equals(dto.getId())
+				&& !session.getAttribute("lv").toString().equals("2"))) {
 			
 			resp.setCharacterEncoding("UTF-8");
 			PrintWriter writer = resp.getWriter();
@@ -35,10 +32,20 @@ public class Auth {
 			writer.close();
 			
 			return true;
-			
 		}
 		
 		return false;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+

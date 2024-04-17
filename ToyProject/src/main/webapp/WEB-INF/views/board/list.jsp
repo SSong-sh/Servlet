@@ -58,6 +58,10 @@
 				<td>${dto.seq}</td>
 				<td>
 				
+				<c:if test="${dto.depth > 0}">
+				<span class="material-symbols-outlined" style ="margin-left: ${dto.depth * 20}px;">subdirectory_arrow_right</span>
+				</c:if>
+
 					<!-- 
 					
 						view.do?seq=10
@@ -67,6 +71,14 @@
 				
 				
 					<a href="/toy/board/view.do?seq=${dto.seq}&column=${map.column}&word=${map.word}&search=${map.search}&page=${nowPage}">${dto.subject}</a>
+					
+					<c:if test="${dto.commentcount > 0 }" >
+					<!-- 댓글 개수 -->
+					<span class="commentCount">
+						<span class="material-symbols-outlined">chat</span>
+						${dto.commentcount}					
+					</span>
+					</c:if>
 					
 					<!-- 최신글 표시 -->
 					<c:if test="${dto.isnew < 1 / 24}">
@@ -101,7 +113,7 @@
 			<button type="button" class="back" onclick="location.href='';"></button> 
 			-->
 			<c:if test="${not empty id }">
-			<button type="button" class="add primary" onclick="location.href='/toy/board/add.do';">쓰기</button>
+			<button type="button" class="add primary" onclick="location.href='/toy/board/add.do?reply=n';">쓰기</button>
 			</c:if>
 		</div>
 		
