@@ -98,10 +98,19 @@ public class List extends HttpServlet {
 		
 		
 		
+		//해시태그 
+		//-list.do
+		//-list.do?tag=게시판
+		
+		String tag = req.getParameter("tag");
+		map.put("tag", tag);
+		
 		
 		//1. DB 작업 > select
 		//2. 결과 > 출력
 		BoardDAO dao = new BoardDAO();
+		
+		
 		
 		ArrayList<BoardDTO> list = dao.list(map);
 		

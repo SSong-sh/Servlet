@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 
+import com.test.toy.user.model.LogDTO;
 import com.test.toy.user.model.UserDTO;
 import com.test.util.DBUtil;
 
@@ -124,6 +127,92 @@ public class UserDAO {
 				
 				return dto;				
 			}	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public void addLog(LogDTO ldto) {
+		
+		try {
+
+			String sql = "insert into tblLog (seq,id,regdate) values (seqLog.nextVal, ? , default)";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, ldto.getId());
+
+			pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+		
+	}
+	
+
+	public void addLog(String id, String regdate) {
+		
+		try {
+
+			String sql = "insert into tblLog (seq,id,regdate) values (seqLog.nextVal, ? , ?)";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, id);
+			pstat.setString(2, regdate);
+
+			pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+		
+	}
+
+	public ArrayList<HashMap<String, String>> loadCalendar(HashMap<String, String> map) {
+		
+		try {
+			
+			String sql = "select \r\n"
+					+ "    to_char(regdate,'yyyy-mm-dd') as regdate,\r\n"
+					+ "    count(*) as cnt,\r\n"
+					+ "    (select count(*) from tblBoard\r\n"
+					+ "        where to_char(regdate, 'yyyy-mm-dd') \r\n"
+					+ "        = to_char(a.regdate, 'yyyy-mm-dd')) as bcnt,\r\n"
+					+ "    (select count(*) from tblComment\r\n"
+					+ "        where to_char(regdate, 'yyyy-mm-dd') \r\n"
+					+ "        = to_char(a.regdate, 'yyyy-mm-dd')) as ccnt\r\n"
+					+ "from tblLog a\r\n"
+					+ "    where to_char(regdate, 'yyyy-mm') = ? and a.id = ? \r\n"
+					+ "    group by to_char(regdate,'yyyy-mm-dd')";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, String.format("%s-%02d", map.get("year"),Integer.parseInt(map.get("month")) ));
+			pstat.setString(2, map.get("id"));
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+			
+			while (rs.next()) {
+				
+				HashMap<String, String> m = new HashMap<String, String>();
+				
+				m.put("regdate",rs.getString("regdate"));
+				m.put("cnt",rs.getString("cnt"));
+				m.put("bcnt",rs.getString("bcnt"));
+				m.put("ccnt",rs.getString("ccnt"));
+				
+				list.add(m);
+			}	
+			
+			return list;
 			
 		} catch (Exception e) {
 			e.printStackTrace();

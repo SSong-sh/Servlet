@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
-    <fullyQualifiedTypeName name="org.openqa.selenium.By.ByCssSelector"/>
-    <fullyQualifiedTypeName name="io.opentelemetry.exporter.logging.SystemOutLogRecordExporter"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="com.test.auth.UserDAO"/>
-    <fullyQualifiedTypeName name="com.test.auth.UserDTO"/>
-    <fullyQualifiedTypeName name="java.util.function.LongToDoubleFunction"/>
-    <fullyQualifiedTypeName name="org.junit.Ignore"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="org.junit.jupiter.api.Disabled"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="com.test.todo.model.TodoDTO"/>
     <fullyQualifiedTypeName name="com.test.todo.model.TodoDAO"/>
     <fullyQualifiedTypeName name="com.test.api.model.BookDAO"/>
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="java.net.URLEncoder"/>
-    <fullyQualifiedTypeName name="org.apache.tomcat.util.json.JSONParser"/>
-    <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
     <fullyQualifiedTypeName name="org.apache.catalina.webresources.WarResourceSet"/>
     <fullyQualifiedTypeName name="com.test.api.model.BookDTO"/>
     <fullyQualifiedTypeName name="javax.servlet.DispatcherType"/>
@@ -36,7 +24,6 @@
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="com.test.place.model.CategoryDTO"/>
-    <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
     <fullyQualifiedTypeName name="com.test.place.model.PlaceDTO"/>
     <fullyQualifiedTypeName name="com.test.place.model.PlaceDAO"/>
     <fullyQualifiedTypeName name="java.nio.file.DirectoryStream.Filter"/>
@@ -51,13 +38,26 @@
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-    <fullyQualifiedTypeName name="com.test.toy.board.repository.BoardDAO"/>
-    <fullyQualifiedTypeName name="com.test.toy.board.model.BoardDTO"/>
-    <fullyQualifiedTypeName name="com.test.toy.board.model.CommentDTO"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.test.toy.board.repository.BoardDAO"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.test.toy.board.model.CommentDTO"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
+    <fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
+    <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
+    <fullyQualifiedTypeName name="com.drew.imaging.ImageMetadataReader"/>
+    <fullyQualifiedTypeName name="com.drew.metadata.Metadata"/>
+    <fullyQualifiedTypeName name="com.drew.metadata.exif.GpsDescriptor"/>
+    <fullyQualifiedTypeName name="com.drew.metadata.exif.GpsDirectory"/>
+    <fullyQualifiedTypeName name="com.test.toy.board.model.BoardDTO"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.util.json.JSONParser"/>
+    <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
+    <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
+    <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
+    <fullyQualifiedTypeName name="oracle.jdbc.proxy.WeakIdentityHashMap"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

@@ -71,6 +71,8 @@ public class Add extends HttpServlet {
 		String content = multi.getParameter("content");
 		String reply = multi.getParameter("reply");
 		String tag = multi.getParameter("tag");
+		String secret = multi.getParameter("secret");
+		
 		
 		//[{"value":"자바"}]
 		//System.out.println(tag);
@@ -121,6 +123,7 @@ public class Add extends HttpServlet {
 		dto.setThread(thread);
 		dto.setDepth(depth);
 		dto.setAttach(multi.getFilesystemName("attach"));
+		dto.setSecret(secret != null ? secret : "0");
 		
 		int result = dao.add(dto);
 		

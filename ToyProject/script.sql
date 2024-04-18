@@ -70,7 +70,9 @@ select
     end regdate,
     (sysdate - regdate) as isnew,
     content, 
-    (select count(*) from tblComment where bseq = tblBoard.seq) as commentCount, depth
+    (select count(*) from tblComment where bseq = tblBoard.seq) as commentCount, 
+    depth,
+    secret
 from tblBoard 
     order by thread desc;
 
@@ -178,3 +180,107 @@ create sequence seqTagging;
 
 select * from tblHashtag;
 select * from tblTagging;
+
+
+
+select h.tag from tblBoard b
+    inner join tblTagging t
+        on b.seq = t.bseq
+            inner join tblHashtag h
+                on h.seq = t.hseq
+                    where b.seq = 284;
+                    
+                    
+                    
+select * from 
+    (select a.*, rownum as rnum from vwBoard a) b
+        inner join tblTagging t
+        on b.seq = t.bseq
+            inner join tblHashtag h
+                on h.seq = t.hseq
+                 where rnum between 1 and 10 and h.tag = '자바';
+
+
+
+delete from tblTagging
+    where bseq = ? and hseq = (select seq from tablHashTag where tag =?);
+
+
+
+drop table tblComment;
+drop table tblTagging;
+drop table tblBoard;
+
+-- 게시판(+비밀글)
+create table tblBoard (
+    seq number primary key,                         --번호(PK)
+    subject varchar2(300) not null,                 --제목
+    content varchar2(4000) not null,                --내용
+    id varchar2(50) not null references tblUser(id),--아이디(FK)
+    regdate date default sysdate not null,          --작성날짜
+    readcount number default 0 not null,            --조회수
+    thread number not null,                         --답변형(정렬)
+    depth number not null,                          --답변형(출력)
+    attach varchar2(100) null,                      --첨부파일
+    secret number(1) not null                       --비밀글(0-공개,1-비밀)
+);
+
+
+
+-- 접속 기록
+create table tblLog (
+    seq number primary key,             -- 번호
+    id varchar2(50) not null references tblUser(id), --아이디
+    regdate date default sysdate not null
+);
+
+create sequence seqLog;
+
+select * from tblLog order by regdate desc;
+
+delete from tblLog;
+delete from tblBoard;
+
+
+select * from tblBoard;
+
+select count(*) from tblBoard; --216
+select count(*) from tblLog; --70
+
+select count(*) from tblBoard b
+    inner join tblLog l
+        on to_char(b.regdate, 'yyyy-mm-dd') = to_char(l.regdate,'yyyy-mm-dd');
+
+
+select * from tblComment;
+delete from tblComment;
+
+
+commit;
+
+
+-- 한 달간 > 로그인 했는지, 날짜 > 글쓴거, 날짜 > 댓글쓴거
+
+select 
+    to_char(regdate,'yyyy-mm-dd') as regdate,
+    count(*) as cnt,
+    (select count(*) from tblBoard
+        where to_char(regdate, 'yyyy-mm-dd') 
+        = to_char(a.regdate, 'yyyy-mm-dd')) as bcnt,
+    (select count(*) from tblComment
+        where to_char(regdate, 'yyyy-mm-dd') 
+        = to_char(a.regdate, 'yyyy-mm-dd')) as ccnt
+from tblLog a
+    where to_char(regdate, 'yyyy-mm') =?  
+    group by to_char(regdate,'yyyy-mm-dd');
+
+
+
+
+
+
+
+
+
+
+
